@@ -12,6 +12,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onDigit(view: View) {
-        Toast.makeText(this, "Button works", Toast.LENGTH_SHORT).show()
+        tvInput
     }
 }
