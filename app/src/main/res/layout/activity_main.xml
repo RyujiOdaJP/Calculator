@@ -13,7 +13,6 @@
         android:layout_height="250dp"
         android:background="#efefef"
         android:maxLength="12"
-        android:text="Hello World!"
         android:textSize="48sp" />
 
     <!--    Row1-->
@@ -168,7 +167,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="onDecimalPoint"
             android:text="." />
 
         <Button
@@ -186,7 +185,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="onClear"
             android:text="CLR" />
 
         <Button
