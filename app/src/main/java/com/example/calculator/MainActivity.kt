@@ -66,7 +66,8 @@ class MainActivity : AppCompatActivity() {
                         baseValue = prefix + baseValue
                     }
 
-                    tvInput.text = (baseValue.toDouble() - comparingValue.toDouble()).toString()
+                    tvInput.text =
+                        removeZero((baseValue.toDouble() - comparingValue.toDouble()).toString())
                 }
                 if (tvValue.contains("+")) { //中身に何があるか
                     val splitValue = tvValue.split("+")
@@ -78,7 +79,8 @@ class MainActivity : AppCompatActivity() {
                         baseValue = prefix + baseValue
                     }
 
-                    tvInput.text = (baseValue.toDouble() + comparingValue.toDouble()).toString()
+                    tvInput.text =
+                        removeZero((baseValue.toDouble() + comparingValue.toDouble()).toString())
                 }
                 if (tvValue.contains("*")) { //中身に何があるか
                     val splitValue = tvValue.split("*")
@@ -90,7 +92,8 @@ class MainActivity : AppCompatActivity() {
                         baseValue = prefix + baseValue
                     }
 
-                    tvInput.text = (baseValue.toDouble() * comparingValue.toDouble()).toString()
+                    tvInput.text =
+                        removeZero((baseValue.toDouble() * comparingValue.toDouble()).toString())
                 }
                 if (tvValue.contains("/")) { //中身に何があるか
                     val splitValue = tvValue.split("/")
@@ -102,7 +105,8 @@ class MainActivity : AppCompatActivity() {
                         baseValue = prefix + baseValue
                     }
 
-                    tvInput.text = (baseValue.toDouble() / comparingValue.toDouble()).toString()
+                    tvInput.text =
+                        removeZero((baseValue.toDouble() / comparingValue.toDouble()).toString())
                 }
             } catch (e: ArithmeticException) {
                 e.printStackTrace()
@@ -115,6 +119,12 @@ class MainActivity : AppCompatActivity() {
         else {
             value.contains("/") || value.contains("*")
                     || value.contains("+") || value.contains("-")
+        }
+    }
+
+    private fun removeZero(result: String): String {
+        if (result.contains(".0")) {
+            return result.substring(0, result.length - 2)
         }
     }
 }
