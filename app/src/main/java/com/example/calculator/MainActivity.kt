@@ -68,6 +68,42 @@ class MainActivity : AppCompatActivity() {
 
                     tvInput.text = (baseValue.toDouble() - comparingValue.toDouble()).toString()
                 }
+                if (tvValue.contains("+")) { //中身に何があるか
+                    val splitValue = tvValue.split("+")
+
+                    var baseValue = splitValue[0]
+                    var comparingValue = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        baseValue = prefix + baseValue
+                    }
+
+                    tvInput.text = (baseValue.toDouble() + comparingValue.toDouble()).toString()
+                }
+                if (tvValue.contains("*")) { //中身に何があるか
+                    val splitValue = tvValue.split("*")
+
+                    var baseValue = splitValue[0]
+                    var comparingValue = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        baseValue = prefix + baseValue
+                    }
+
+                    tvInput.text = (baseValue.toDouble() * comparingValue.toDouble()).toString()
+                }
+                if (tvValue.contains("/")) { //中身に何があるか
+                    val splitValue = tvValue.split("/")
+
+                    var baseValue = splitValue[0]
+                    var comparingValue = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        baseValue = prefix + baseValue
+                    }
+
+                    tvInput.text = (baseValue.toDouble() / comparingValue.toDouble()).toString()
+                }
             } catch (e: ArithmeticException) {
                 e.printStackTrace()
             }
