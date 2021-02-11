@@ -22,16 +22,32 @@ class MainActivity : AppCompatActivity() {
         isNumeric = true
     }
 
-    fun onClear (view: View){
+    fun onClear(view: View) {
         tvInput.text = ""
         isDecimal = false
         isNumeric = false
     }
 
-    fun onDecimalPoint (view: View) {
+    fun onDecimalPoint(view: View) {
         if (isNumeric && !isDecimal) {
             tvInput.append((view as Button).text)
             isDecimal = true
+        }
+    }
+
+    fun onOperator (view: View) {
+        if (isNumeric && !isOperatorAdded(tvInput.text.toString())) {
+            tvInput.append((view as Button).text)
+            isNumeric = false
+            isDecimal = false
+        }
+    }
+
+    private fun isOperatorAdded(value: String): Boolean {
+        return if (value.startsWith("-")) false
+        else {
+            value.contains("/") || value.contains("*")
+                    || value.contains("+") || value.contains("-")
         }
     }
 }
